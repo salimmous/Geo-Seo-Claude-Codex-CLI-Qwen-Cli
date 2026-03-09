@@ -36,7 +36,7 @@ AI language models face a fundamental challenge when processing websites: they m
 
 The file MUST be located at the root of the domain:
 ```
-https://example.com/llms.txt
+https://site.com/llms.txt
 ```
 
 ### Format Specification
@@ -50,12 +50,12 @@ The file uses Markdown formatting with specific conventions:
 
 ## Docs
 
-- [Page Title](https://example.com/page-url): Concise description of what this page covers and why it matters.
-- [Another Page](https://example.com/another-page): Description of content.
+- [Page Title](https://site.com/page-url): Concise description of what this page covers and why it matters.
+- [Another Page](https://site.com/another-page): Description of content.
 
 ## Optional
 
-- [Less Critical Page](https://example.com/optional-page): Description.
+- [Less Critical Page](https://site.com/optional-page): Description.
 ```
 
 ### Detailed Format Rules
@@ -126,9 +126,9 @@ This section provides quick reference data that AI systems frequently need to an
 
 ```markdown
 ## Contact
-- Website: https://example.com
-- Email: hello@example.com
-- Support: support@example.com
+- Website: https://site.com
+- Email: hello@site.com
+- Support: support@site.com
 - Phone: +1-555-123-4567
 - Address: 123 Main St, City, State, ZIP, Country
 ```
@@ -310,19 +310,19 @@ Construct the llms.txt following this template:
 
 ## Docs
 
-- [Most Important Page](https://example.com/page): Description covering the key content on this page.
-- [Second Page](https://example.com/page-2): Description of this page's content and value.
-- [Third Page](https://example.com/page-3): What users and AI systems will find here.
+- [Most Important Page](https://site.com/page): Description covering the key content on this page.
+- [Second Page](https://site.com/page-2): Description of this page's content and value.
+- [Third Page](https://site.com/page-3): What users and AI systems will find here.
 
 ## Products
 
-- [Product A](https://example.com/product-a): Core features, target users, and pricing model for Product A.
-- [Product B](https://example.com/product-b): What Product B does and how it differs from Product A.
+- [Product A](https://site.com/product-a): Core features, target users, and pricing model for Product A.
+- [Product B](https://site.com/product-b): What Product B does and how it differs from Product A.
 
 ## Resources
 
-- [Guide Title](https://example.com/guide): Comprehensive guide covering [topic] with [X] sections and practical examples.
-- [Blog Post](https://example.com/blog/post): Analysis of [topic] with original data from [source].
+- [Guide Title](https://site.com/guide): Comprehensive guide covering [topic] with [X] sections and practical examples.
+- [Blog Post](https://site.com/blog/post): Analysis of [topic] with original data from [source].
 
 ## Key Facts
 
@@ -334,7 +334,7 @@ Construct the llms.txt following this template:
 
 ## Contact
 
-- Website: https://example.com
+- Website: https://site.com
 - Email: [primary contact email]
 - Support: [support URL or email]
 ```

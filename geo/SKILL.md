@@ -12,10 +12,25 @@ description: >
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
 
-# GEO-SEO Analysis Tool — Claude Code Skill (February 2026)
+# GEO-SEO Analysis Tool — Claude + Codex + Qwen Skill (February 2026)
 
 > **Philosophy:** GEO-first, SEO-supported. AI search is eating traditional search.
 > This tool optimizes for where traffic is going, not where it was.
+
+---
+
+## Runtime Compatibility
+
+| Runtime | Install Root | Invocation |
+|---------|--------------|------------|
+| Claude Code | `~/.claude` | `/geo audit https://site.com` |
+| Codex CLI | `~/.codex` | `Use $geo and run a GEO audit for https://site.com` |
+| Qwen Code | `~/.qwen` | `/skills geo` → `geo` → `Run a GEO audit for https://site.com` |
+
+**Notes**
+- In Codex, restart the session after installing skills.
+- In Qwen, the first launch may require OAuth authentication.
+- In Qwen, `/skills geo` lists GEO skills; select `geo` to activate the main orchestrator.
 
 ---
 
@@ -170,7 +185,10 @@ The `/geo report-pdf <url>` command generates a professional, branded PDF report
 ### How It Works
 1. Run the full audit or individual analyses first
 2. Collect all scores and findings into a JSON structure
-3. Execute the PDF generator: `python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
+3. Execute the PDF generator:
+   - Claude install: `python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
+   - Codex install: `python3 ~/.codex/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
+   - Qwen install: `python3 ~/.qwen/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
 
 ### What the PDF Includes
 - **Cover page** with GEO score gauge visualization
@@ -203,20 +221,20 @@ The `/geo report-pdf <url>` command generates a professional, branded PDF report
 
 ```
 # Full GEO audit of a website
-/geo audit https://example.com
+/geo audit https://site.com
 
 # Check if AI bots can see your site
-/geo crawlers https://example.com
+/geo crawlers https://site.com
 
 # Score a specific page for AI citability
-/geo citability https://example.com/blog/best-article
+/geo citability https://site.com/blog/best-article
 
 # Generate an llms.txt file for your site
-/geo llmstxt https://example.com
+/geo llmstxt https://site.com
 
 # Get a 60-second visibility snapshot
-/geo quick https://example.com
+/geo quick https://site.com
 
 # Generate a client-ready report
-/geo report https://example.com
+/geo report https://site.com
 ```

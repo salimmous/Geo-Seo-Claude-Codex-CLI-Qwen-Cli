@@ -155,12 +155,12 @@ The Author schema is one of the strongest E-E-A-T signals for AI platforms.
 {
   "@type": "WebSite",
   "name": "Site Name",
-  "url": "https://example.com",
+  "url": "https://site.com",
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://example.com/search?q={search_term_string}"
+      "urlTemplate": "https://site.com/search?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   }
@@ -256,12 +256,12 @@ Based on the detected business type, generate ready-to-paste JSON-LD blocks. Alw
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://example.com/#organization",
+  "@id": "https://site.com/#organization",
   "name": "Company Name",
-  "url": "https://example.com",
+  "url": "https://site.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://example.com/logo.png",
+    "url": "https://site.com/logo.png",
     "width": 600,
     "height": 60
   },
@@ -284,7 +284,7 @@ Based on the detected business type, generate ready-to-paste JSON-LD blocks. Alw
     "@type": "ContactPoint",
     "telephone": "+1-555-555-5555",
     "contactType": "customer service",
-    "email": "support@example.com"
+    "email": "support@site.com"
   },
   "sameAs": [
     "https://en.wikipedia.org/wiki/Company_Name",

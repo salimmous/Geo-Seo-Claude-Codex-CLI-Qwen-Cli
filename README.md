@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="GEO-SEO Claude Code Skill" width="900"/>
+  <img src="assets/banner.svg" alt="GEO-SEO Skill (Claude + Codex + Qwen)" width="900"/>
 </p>
 
 <p align="center">
@@ -26,6 +26,25 @@
 
 ---
 
+## New in This Version
+
+- Native install targets for **Claude Code**, **Codex CLI**, and **Qwen Code**
+- `GEO_INSTALL_TARGET` support for single-target or multi-target installs
+- Tested CLI-specific invocation flows instead of assuming one slash-command format everywhere
+- Shared GEO scripts, sub-skills, agents, and schema assets installed into each CLI's home
+
+---
+
+## CLI Support
+
+| CLI | Install Location | How to Invoke | Status |
+|-----|------------------|---------------|--------|
+| Claude Code | `~/.claude` | `/geo audit https://site.com` | Tested |
+| Codex CLI | `~/.codex` | `Use $geo and run a GEO audit for https://site.com` | Tested |
+| Qwen Code | `~/.qwen` | `/skills geo` → `geo` → `Run a GEO audit for https://site.com` | Tested |
+
+---
+
 ## Quick Start
 
 ### One-Command Install (macOS/Linux)
@@ -42,10 +61,16 @@ cd geo-seo-claude
 ./install.sh
 ```
 
+Optional target selection:
+
+```bash
+GEO_INSTALL_TARGET=qwen ./install.sh   # claude | codex | qwen | all | claude,qwen (default: all)
+```
+
 ### Requirements
 
 - Python 3.8+
-- Claude Code CLI
+- Claude Code CLI, Codex CLI, and/or Qwen Code
 - Git
 - Optional: Playwright (for screenshots)
 
@@ -53,7 +78,7 @@ cd geo-seo-claude
 
 ## Commands
 
-Open Claude Code and use these commands:
+In Claude Code, use these slash commands:
 
 | Command | What It Does |
 |---------|-------------|
@@ -69,6 +94,31 @@ Open Claude Code and use these commands:
 | `/geo content <url>` | Content quality & E-E-A-T assessment |
 | `/geo report <url>` | Generate client-ready GEO report |
 | `/geo report-pdf` | Generate professional PDF report with charts & visualizations |
+
+In Codex CLI, use prompt-style commands with `$geo`, for example:
+
+- `Use $geo and run a GEO audit for https://site.com`
+- `Use $geo and run a quick GEO visibility snapshot for https://site.com`
+- `Use $geo and generate a client-ready GEO report for https://site.com`
+
+Important for Codex:
+
+- Restart the `codex` session after installing new skills so they are reloaded.
+- Do not use Claude-style slash commands like `/geo audit ...` in Codex.
+- In Codex, invoke the skill in a normal prompt with `$geo`.
+
+In Qwen Code, explicitly load and select the skill first, then ask for the task:
+
+- `/skills geo`
+- `geo`
+- `Run a GEO audit for https://site.com`
+- `Generate a client-ready GEO report for https://site.com`
+
+Important for Qwen:
+
+- On first run, Qwen may stop on an authentication screen. Complete the OAuth flow once.
+- `/skills geo` opens the GEO skill list. Select `geo` to load the main orchestrator skill.
+- After `geo` is active, ask for the specific task or website you want analyzed.
 
 ---
 
@@ -121,7 +171,7 @@ geo-seo-claude/
 
 ### Full Audit Flow
 
-When you run `/geo audit https://example.com`:
+When you run the GEO audit flow for `https://site.com`:
 
 1. **Discovery** — Fetches homepage, detects business type, crawls sitemap
 2. **Parallel Analysis** — Launches 5 subagents simultaneously:
@@ -168,6 +218,30 @@ Generates professional GEO reports in markdown or PDF format. PDF reports includ
 
 ---
 
+## Tested Flows
+
+### Claude Code
+
+```text
+/geo audit https://site.com
+```
+
+### Codex CLI
+
+```text
+Use $geo and run a GEO audit for https://site.com
+```
+
+### Qwen Code
+
+```text
+/skills geo
+geo
+Run a GEO audit for https://site.com
+```
+
+---
+
 ## Use Cases
 
 - **GEO Agencies** — Run client audits and generate deliverables
@@ -185,10 +259,28 @@ Generates professional GEO reports in markdown or PDF format. PDF reports includ
 ./uninstall.sh
 ```
 
+Optional target selection:
+
+```bash
+GEO_INSTALL_TARGET=qwen ./uninstall.sh   # claude | codex | qwen | all | claude,qwen (default: all)
+```
+
 Or manually:
 ```bash
-rm -rf ~/.claude/skills/geo ~/.claude/skills/geo-* ~/.claude/agents/geo-*.md
+rm -rf \
+  ~/.claude/skills/geo ~/.claude/skills/geo-* ~/.claude/agents/geo-*.md \
+  ~/.codex/skills/geo ~/.codex/skills/geo-* ~/.codex/agents/geo-*.md \
+  ~/.qwen/skills/geo ~/.qwen/skills/geo-* ~/.qwen/agents/geo-*.md
 ```
+
+---
+
+## Troubleshooting
+
+- **Codex does not recognize `geo`**: Restart `codex` after install and use `$geo` in a normal prompt, not `/geo ...`.
+- **Qwen asks for authentication**: Complete the Qwen OAuth flow on first launch, then rerun `/skills geo`, choose `geo`, and continue.
+- **You only want one CLI target**: Use `GEO_INSTALL_TARGET=claude`, `codex`, `qwen`, or a comma-separated list like `claude,qwen`.
+- **You want all supported CLIs**: Run `./install.sh` with no target override. Default is `all`.
 
 ---
 
