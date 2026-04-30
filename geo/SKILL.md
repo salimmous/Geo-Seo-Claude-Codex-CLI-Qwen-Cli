@@ -54,6 +54,7 @@ allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 | `/geo prospect <cmd>` | CRM-lite: manage prospects through the sales pipeline |
 | `/geo proposal <domain>` | Auto-generate client proposal from audit data |
 | `/geo compare <domain>` | Monthly delta report: show score improvements to client |
+| `/geo update` | Pull latest GEO skill updates from upstream |
 
 ---
 
@@ -130,7 +131,7 @@ Adjust recommendations based on detected type. Local businesses need LocalBusine
 
 ---
 
-## Sub-Skills (10 Specialized Components)
+## Sub-Skills (14 Specialized Components)
 
 | # | Skill | Directory | Purpose |
 |---|-------|-----------|---------|
@@ -147,6 +148,7 @@ Adjust recommendations based on detected type. Local businesses need LocalBusine
 | 11 | geo-prospect | `skills/geo-prospect/` | CRM-lite prospect and client pipeline management |
 | 12 | geo-proposal | `skills/geo-proposal/` | Auto-generate client proposals from audit data |
 | 13 | geo-compare | `skills/geo-compare/` | Monthly delta tracking and progress reports |
+| 14 | geo-update | `skills/geo-update/` | Pull latest updates from upstream repository |
 
 ---
 
